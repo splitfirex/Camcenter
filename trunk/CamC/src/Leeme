@@ -1,0 +1,15 @@
+Daniel Farina
+Alejandro Do Nascimiento
+
+CamCenter
+
+Instrucciones de uso
+crea un archivo .txt que contenga solo nombres que tendran las camaras y
+la direccion donde se cuentra la camara IP
+ej:
+Camara_1 Http://camara1.com/
+Camara_2 Http://camara2.net/
+
+y se ejecuta con la siguiente linea
+java -jar CamC.jar [direccion del archivo anterior]
+
