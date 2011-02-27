@@ -309,11 +309,7 @@ public class CamCenter extends JPanel implements Runnable {
     public static void main(String[] args) {
 
 
-        File file = new File(args[0]);
         if(args.length>0){
-
-
-
 
        HashMap cams = CamCenter.lector(args[0]);
        JFrame frame= Init(cams.size());
