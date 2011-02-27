@@ -1,0 +1,4 @@
+Camara1 http://87.101.127.24/axis-cgi/mjpg/video.cgi
+Camara2 http://81.92.254.3/axis-cgi/mjpg/video.cgi
+Camara_Con_el_Don http://192.168.1.6:8081/
+Camara_Con_el_Don http://192.168.1.6:8081/
