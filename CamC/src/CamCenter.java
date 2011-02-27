@@ -245,6 +245,8 @@ public class CamCenter extends JPanel implements Runnable {
        switch(cantidad){
            case 1:
             frame.getContentPane().setLayout(new GridLayout(0,1));
+            frame.setSize(330*cantidad,280);
+            break;
            case 2:
             frame.getContentPane().setLayout(new GridLayout(0,2));
             frame.setSize(330*cantidad,280);
@@ -313,6 +315,7 @@ public class CamCenter extends JPanel implements Runnable {
 
        HashMap cams = CamCenter.lector(args[0]);
        JFrame frame= Init(cams.size());
+       System.out.println(cams.size());
        Iterator k =cams.values().iterator();
        while(k.hasNext()){
           camara c = (camara) k.next();
