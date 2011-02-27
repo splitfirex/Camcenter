@@ -97,7 +97,7 @@ public class CamCenter extends JPanel implements Runnable {
             dis = new DataInputStream(bis);
             readStream();
             }
-            disconnect();
+
         } catch (IOException e) { //incase no connection exists wait and try again, instead of printing the error
             try {
                 huc.disconnect();
