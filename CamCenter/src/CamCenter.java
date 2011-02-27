@@ -34,8 +34,8 @@ public class CamCenter extends JPanel implements Runnable {
     private boolean useMJPGStream = true;
     private boolean motion = true;
     private int intentos =0;
-    public String jpgURL = "http://81.92.254.3/axis-cgi/mjpg/video.cgi";
-    public String mjpgURL = "http://87.101.127.24/axis-cgi/mjpg/video.cgi";
+    public String jpgURL = "";  //"http://81.92.254.3/axis-cgi/mjpg/video.cgi"; links de prueba
+    public String mjpgURL = ""; // "http://87.101.127.24/axis-cgi/mjpg/video.cgi"; links de prueba
     private boolean terminado =false;
     DataInputStream dis;
     Font f = new Font("Courier", Font.PLAIN,  10);
@@ -83,14 +83,14 @@ public class CamCenter extends JPanel implements Runnable {
         try {
             URL u = new URL(useMJPGStream ? mjpgURL : jpgURL);
             huc = (HttpURLConnection) u.openConnection();
-            System.out.println(huc.getContentType());
+            //System.out.println(huc.getContentType());
             if(null==huc.getContentType() && intentos <3){
                 intentos++;
                 System.out.println("No Hay conexion con "+mjpgURL+" volviendo a intentar, intento "+ intentos);
                 Thread.sleep(1000);
                 connect();
             }else{
-
+                System.out.println("conexion con "+mjpgURL+" Mostrando imagenes");
             InputStream is = huc.getInputStream();
             connected = true;
             BufferedInputStream bis = new BufferedInputStream(is);
@@ -297,7 +297,9 @@ public class CamCenter extends JPanel implements Runnable {
                 }
             }
         } catch (FileNotFoundException ex) {
-
+            System.out.println("Error Revise la ruta del archivo");
+            System.out.println("java -jar [ruta del archivo]");
+            System.exit(0);
         } catch (IOException ex) {
 
         }
@@ -306,8 +308,13 @@ public class CamCenter extends JPanel implements Runnable {
 
     public static void main(String[] args) {
 
-       
-       
+
+        File file = new File(args[0]);
+        if(args.length>0){
+
+
+
+
        HashMap cams = CamCenter.lector(args[0]);
        JFrame frame= Init(cams.size());
        Iterator k =cams.values().iterator();
@@ -316,8 +323,10 @@ public class CamCenter extends JPanel implements Runnable {
           CamCenter axPanel = new CamCenter(c.Nombre,c.URL,frame);
           new Thread(axPanel).start();
        }
-
-
+       }else{
+            System.out.println("Revise la ruta del archivo");
+            
+       }
 
     }
 }
