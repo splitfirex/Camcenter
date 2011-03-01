@@ -239,7 +239,7 @@ public class CamCenter extends JPanel implements Runnable {
     }
 
     public static JFrame Init(int cantidad){
-       JFrame frame = new JFrame("Display image");
+       JFrame frame = new JFrame("CamCenter v0.1");
       
 
        switch(cantidad){
